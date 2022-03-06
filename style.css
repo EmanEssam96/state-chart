@@ -103,7 +103,7 @@ li {
   height: 50px;
 }
 
-#circle-4 {
+#circle-5 {
   background-color: red;
   color: #fff;
   font-weight: bold;
@@ -113,9 +113,8 @@ li {
   height: 50px;
 }
 
-
-
-.wrapper-actions-state, .wrapper-action-state {
+.wrapper-actions-state,
+.wrapper-action-state {
   width: 78px;
   position: absolute;
   background: #fff;
@@ -129,13 +128,13 @@ li {
 }
 
 .smstate-content:hover .wrapper-actions-state {
-  display: flex !important
+  display: flex !important;
 }
 
 .smaction:hover .wrapper-action-state {
   display: flex !important;
 }
-.smaction:hover .state-action-model-name{
+.smaction:hover .state-action-model-name {
   color: #337ab7;
   font-weight: 700;
 }
@@ -164,7 +163,6 @@ li {
   white-space: nowrap;
 }
 
-
 .wrapper-state-action-model-name-icon {
   width: 20px;
   height: 20px;
@@ -173,13 +171,12 @@ li {
   margin: 0 auto;
 }
 
-.smaction{
+.smaction {
   width: 50px;
   height: 45px;
   max-width: 50px;
   max-height: 45px;
 }
-
 
 .wrapper-state-action-model-name-icon.FormAction {
   background-image: url("/img/formAction.png") !important;
@@ -205,7 +202,6 @@ li {
   background-image: url("/img/HieriarchalApproval.png") !important;
 }
 
-
-.wrapper-action-state a{
-  cursor:pointer
+.wrapper-action-state a {
+  cursor: pointer;
 }
