@@ -40,7 +40,6 @@ var data = [
         id: "circle-5",
         icon: "",
         actions: [
-            { name: "action-11", id: "action-11", type: "A", source: "circle-5", target: "circle-1" },
             { name: "action-11", id: "action-11", type: "A", source: "circle-5", target: "circle-2" },
             { name: "action-12", id: "action-12", type: "A", source: "circle-5", target: "circle-4" },
         ]
@@ -670,5 +669,5 @@ function getStubMargin(action, actionIndex, stateIndex) {
         }
     }
 
-    return (Math.abs(sourceIndex - targetIndex) + stateIndex + actionIndex) * 50
+    return (sourceIndex + targetIndex - stateIndex + actionIndex) * 30
 }
