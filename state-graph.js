@@ -105,6 +105,15 @@ function drawSingleAction(item, i, direction, data) {
                     length: 15,
                     paintStyle: { stroke: getLineColor(item), fill: getLineColor(item) }
                 }
+            },
+            {
+                type: "PlainArrow",
+                options: {
+                    location: 0.55,
+                    width: 15,
+                    length: 15,
+                    paintStyle: { stroke: getLineColor(item), fill: getLineColor(item) }
+                }
             }
         ]
     })
@@ -121,7 +130,7 @@ function addToUpDownActionsList(action, actionIndex, direction) {
 
 function getLineColor(action) {
     switch (action.type) {
-        case "A": return "blue"
+        case "A": return "darkgreen"
         case "B": return "darkred"
         default: return "#456"
     }

@@ -14,6 +14,8 @@ var dataSource = [
         actions: [
             { name: "action-2", id: "action-2", type: "A", source: "circle-2", target: "circle-3" },
             { name: "action-3", id: "action-3", type: "B", source: "circle-2", target: "circle-4" },
+            { name: "action-36", id: "action-37", type: "B", source: "circle-2", target: "circle-6" },
+            { name: "action-37", id: "action-37", type: "B", source: "circle-2", target: "circle-7" },
         ]
     },
     {
@@ -37,6 +39,7 @@ var dataSource = [
             { name: "action-8", id: "action-8", type: "A", source: "circle-4", target: "circle-3" },
             { name: "action-9", id: "action-9", type: "B", source: "circle-4", target: "circle-1" },
             { name: "action-9", id: "action-9", type: "B", source: "circle-4", target: "circle-6" },
+            { name: "action-94", id: "action-94", type: "B", source: "circle-4", target: "circle-4" },
         ]
     },
     {
