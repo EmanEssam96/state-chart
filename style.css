@@ -18,7 +18,7 @@
 
 .wrapper > div {
   width: 200px;
-  min-height: 100px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   color: #333;
@@ -204,4 +204,16 @@ li {
 
 .wrapper-action-state a {
   cursor: pointer;
+}
+
+.jtk-connector-outline {
+  /* background-color: red; */
+  fill: red !important;
+  stroke: red !important;
+}
+
+.jtk-connector {
+  /* border: solid 2px red; */
+  fill: red !important;
+  stroke: red !important;
 }
