@@ -1,6 +1,4 @@
 
-//graph logic
-
 function drawGraph(dataSource) {
     drawStates(dataSource);
     drawStatesActions(dataSource);

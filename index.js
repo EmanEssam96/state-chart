@@ -9,8 +9,11 @@ var instance = jsPlumbBrowserUI.newInstance({
 let upActions = [];
 let downActions = [];
 
+//get graph data
+const graphData = dataSource;
+
 //start drawy graph
-drawGraph(dataSource);
+drawGraph(graphData);
 
 window.addEventListener('resize', () => {
     instance.repaintEverything();
