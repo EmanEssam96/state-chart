@@ -101,8 +101,8 @@ function drawSingleAction(item, i, direction, data) {
                 type: "PlainArrow",
                 options: {
                     location: 1,
-                    width: 15,
-                    length: 15,
+                    width: 11,
+                    length: 11,
                     paintStyle: { stroke: getLineColor(item), fill: getLineColor(item) }
                 }
             },
@@ -110,8 +110,8 @@ function drawSingleAction(item, i, direction, data) {
                 type: "PlainArrow",
                 options: {
                     location: 0.55,
-                    width: 15,
-                    length: 15,
+                    width: 10,
+                    length: 10,
                     paintStyle: { stroke: getLineColor(item), fill: getLineColor(item) }
                 }
             }
