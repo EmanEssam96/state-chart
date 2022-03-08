@@ -15,7 +15,7 @@ function drawStates(data) {
         if (firstNode) {
             node = getStartNode(item);
         } else if (regularNode) {
-            node = getNode(item);
+            node = getNode(item, data);
         } else if (lastNode) {
             node = getEndNode(item);
         }
@@ -31,21 +31,22 @@ function drawStatesActions(data) {
     }
 }
 
-function drawStateActions(actions, data) {
+function drawStateActions(actions, data, isDimmed) {
     const { up, down, loop } = getUpDownActions(actions, data);
-    drawActions(up, "up", data);
-    drawActions(down, "down", data);
-    drawActions(loop, "loop", data);
+    drawActions(up, "up", data, isDimmed);
+    drawActions(down, "down", data, isDimmed);
+    drawActions(loop, "loop", data, isDimmed);
 }
 
-function drawActions(actions, direction, data) {
+function drawActions(actions, direction, data, isDimmed) {
     for (let i = 0; i < actions.length; i++) {
         let item = actions[i];
-        drawSingleAction(item, i, direction, data)
+        drawSingleAction(item, i, direction, data, isDimmed)
     }
 }
 
-function drawSingleAction(item, i, direction, data) {
+function drawSingleAction(item, i, direction, data, isDimmed) {
+    let isActionDimmed = isDimmed === true ? isDimmed : false;
     let actionClass = "wrapper-state-action-model-name-icon"
     if (item.type == "A") {
         actionClass += " ApprovalAction"
@@ -73,7 +74,8 @@ function drawSingleAction(item, i, direction, data) {
                         const d = document.createElement("div")
                         d.classList.add("smaction");
                         d.innerHTML = `
-                        <div class="wrapper-state-action-model-name d-flex">
+                        <div class="wrapper-state-action-model-name d-flex" 
+                        style="opacity:${isActionDimmed ? 0.4 : 1};">
                             <div 
                                 class="${actionClass}" title=${item.name}>
                             </div>
@@ -103,7 +105,7 @@ function drawSingleAction(item, i, direction, data) {
                     location: 1,
                     width: 11,
                     length: 11,
-                    paintStyle: { stroke: getLineColor(item), fill: getLineColor(item) }
+                    paintStyle: { stroke: getLineColor(item, isActionDimmed), fill: getLineColor(item, isActionDimmed) }
                 }
             },
             {
@@ -112,12 +114,15 @@ function drawSingleAction(item, i, direction, data) {
                     location: 0.55,
                     width: 10,
                     length: 10,
-                    paintStyle: { stroke: getLineColor(item), fill: getLineColor(item) }
+                    paintStyle: { stroke: getLineColor(item, isActionDimmed), fill: getLineColor(item, isActionDimmed) }
                 }
             }
         ]
     })
-    connection.setPaintStyle({ strokeWidth: 3, stroke: getLineColor(item) })
+    debugger
+    console.log("connection: ", connection);
+    connection.setPaintStyle({ strokeWidth: 2, stroke: getLineColor(item, isActionDimmed) });
+    connection.setVisible(true);
 }
 
 function addToUpDownActionsList(action, actionIndex, direction) {
@@ -128,11 +133,11 @@ function addToUpDownActionsList(action, actionIndex, direction) {
     }
 }
 
-function getLineColor(action) {
+function getLineColor(action, isDimmed) {
     switch (action.type) {
-        case "A": return "darkgreen"
-        case "B": return "darkred"
-        default: return "#456"
+        case "A": return isDimmed ? "#00640011" : "darkgreen"
+        case "B": return isDimmed ? "#8b000011" : "darkred"
+        default: return isDimmed ? "#d7d8d911" : "#456"
     }
 }
 
@@ -170,7 +175,10 @@ function getNode(item) {
     return `
     <div class="wrapper">
        <div>
-          <div id=${item.id} name=${item.id} class="circle smstate-content">
+          <div id=${item.id} 
+          title="Press on state to get state actions focused"
+          onClick="handleOnStateClicked('${item.id}')" 
+          name=${item.id} class="circle smstate-content">
             ${item.name}
             <div class="wrapper-actions-state">
                 <a title="Add Action" class="delete-action mr-1"><span
@@ -282,4 +290,45 @@ function getSourceTargetIndex(action, data) {
     }
 
     return { sourceIndex, targetIndex }
+}
+
+
+// function handleOnStateClicked() {
+//     alert("hello")
+// }
+
+function reseGraph() {
+    conatiner.innerHTML = "";
+    upActions = [];
+    downActions = [];
+}
+
+// function handleOnStateClicked(stateId) {
+//     let selectedState;
+//     for (let i = 0; i < dataSource.length; i++) {
+//         const item = dataSource[i];
+//         if (item.id == stateId) {
+//             selectedState = item;
+//         }
+//     }
+//     reseGraph();
+//     drawStates(dataSource);
+//     drawStateActions(selectedState.actions, dataSource);
+// }
+
+function handleOnStateClicked(stateId) {
+    let selectedActions = [];
+    let otherActions = [];
+    for (let i = 0; i < dataSource.length; i++) {
+        const item = dataSource[i];
+        if (item.id == stateId) {
+            selectedActions = selectedActions.concat(item.actions);
+        } else {
+            otherActions = otherActions.concat(item.actions);
+        }
+    }
+    reseGraph();
+    drawStates(dataSource);
+    drawStateActions(selectedActions, dataSource);
+    drawStateActions(otherActions, dataSource, true);
 }
