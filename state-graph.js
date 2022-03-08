@@ -60,7 +60,7 @@ function drawSingleAction(item, i, direction, data, isDimmed) {
             type: getActionLineType(direction),
             options: {
                 stub: getOffsetMargin(item, i, direction, data),
-                cornerRadius: 25,
+                cornerRadius: 100,
             },
         },
         endpoint: "Rectangle",
@@ -103,25 +103,41 @@ function drawSingleAction(item, i, direction, data, isDimmed) {
                 type: "PlainArrow",
                 options: {
                     location: 1,
-                    width: 11,
-                    length: 11,
+                    width: 7,
+                    length: 7,
                     paintStyle: { stroke: getLineColor(item, isActionDimmed), fill: getLineColor(item, isActionDimmed) }
                 }
             },
             {
                 type: "PlainArrow",
                 options: {
-                    location: 0.55,
-                    width: 10,
-                    length: 10,
+                    location: 0.5,
+                    width: 7,
+                    length: 7,
+                    paintStyle: { stroke: getLineColor(item, isActionDimmed), fill: getLineColor(item, isActionDimmed) }
+                }
+            },
+            {
+                type: "PlainArrow",
+                options: {
+                    location: 0.15,
+                    width: 7,
+                    length: 7,
+                    paintStyle: { stroke: getLineColor(item, isActionDimmed), fill: getLineColor(item, isActionDimmed) }
+                }
+            },
+            {
+                type: "PlainArrow",
+                options: {
+                    location: 0.85,
+                    width: 7,
+                    length: 7,
                     paintStyle: { stroke: getLineColor(item, isActionDimmed), fill: getLineColor(item, isActionDimmed) }
                 }
             }
         ]
     })
-    debugger
-    console.log("connection: ", connection);
-    connection.setPaintStyle({ strokeWidth: 2, stroke: getLineColor(item, isActionDimmed) });
+    connection.setPaintStyle({ strokeWidth: 1.2, stroke: getLineColor(item, isActionDimmed) });
     connection.setVisible(true);
 }
 
@@ -177,7 +193,7 @@ function getNode(item) {
        <div>
           <div id=${item.id} 
           title="Press on state to get state actions focused"
-          onClick="handleOnStateClicked('${item.id}')" 
+          onclick="handleOnStateClicked('${item.id}')" 
           name=${item.id} class="circle smstate-content">
             ${item.name}
             <div class="wrapper-actions-state">

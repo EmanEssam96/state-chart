@@ -8,7 +8,7 @@ var dataSource = [
         ]
     },
     {
-        name: "state-2",
+        name: "step-2",
         id: "circle-2",
         icon: "",
         actions: [
@@ -19,7 +19,7 @@ var dataSource = [
         ]
     },
     {
-        name: "state-3",
+        name: "step-3",
         id: "circle-3",
         icon: "",
         actions: [
@@ -31,7 +31,7 @@ var dataSource = [
         ]
     },
     {
-        name: "state-4",
+        name: "step-4",
         id: "circle-4",
         icon: "",
         actions: [
@@ -43,7 +43,7 @@ var dataSource = [
         ]
     },
     {
-        name: "state-40",
+        name: "step-5",
         id: "circle-40",
         icon: "",
         actions: [
@@ -53,7 +53,7 @@ var dataSource = [
         ]
     },
     {
-        name: "state-6",
+        name: "step-6",
         id: "circle-6",
         icon: "",
         actions: [
@@ -64,7 +64,7 @@ var dataSource = [
         ]
     },
     {
-        name: "state-7",
+        name: "step-7",
         id: "circle-7",
         icon: "",
         actions: [
